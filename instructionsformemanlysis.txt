@@ -1,0 +1,1 @@
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=/home/workspace/ChatBot/valgrind_out.txt /home/workspace/ChatBot/build/membot

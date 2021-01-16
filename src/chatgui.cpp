@@ -19,7 +19,7 @@ std::string imgBasePath = dataPath + "images/";
 bool ChatBotApp::OnInit()
 {
     // create window with name and show it
-    ChatBotFrame *chatBotFrame = new ChatBotFrame(wxT("Udacity ChatBot"));
+    ChatBotFrame *chatBotFrame = new ChatBotFrame(wxT("Otman ChatBot"));
     chatBotFrame->Show(true);
 
     return true;
@@ -118,7 +118,9 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     ////
 
     // create chat logic instance
-    _chatLogic = new ChatLogic(); 
+    //commented out due to instantiation during initialization of ChatBotPanelDialog
+    _chatLogic = std::unique_ptr<ChatLogic>(new ChatLogic());
+
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
@@ -135,7 +137,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     //// STUDENT CODE
     ////
 
-    delete _chatLogic;
+    //no need for delete due to smartpointer delete _chatLogic;
 
     ////
     //// EOF STUDENT CODE
